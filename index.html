@@ -377,50 +377,161 @@ Lamaran WhatsApp
 
 <script>
 
- function toggleMenu(){
+/* MENU MOBILE */
 
+function toggleMenu(){
 let menu=document.getElementById("menu")
-
-if(menu.style.display==="flex"){
-menu.style.display="none"
-}else{
-menu.style.display="flex"
+menu.style.display = menu.style.display==="flex" ? "none" : "flex"
 }
 
-  } 
-  
 /* LOADING */
 
 window.onload=function(){
-
 setTimeout(function(){
-
 document.getElementById("loading").style.display="none";
+},1200)
+}
 
-},1500)
+/* =========================
+DATABASE PEKERJAAN
+========================= */
+
+let jobsDatabase=[
+
+{
+title:"Kasir",
+company:"Toko Elektronik",
+location:"Wakatobi",
+salary:"2.500.000",
+skills:["kasir","uang","pelayanan","toko","transaksi"]
+},
+
+{
+title:"Driver",
+company:"Perusahaan Logistik",
+location:"Kendari",
+salary:"3.000.000",
+skills:["driver","mengemudi","mobil","logistik","antar"]
+},
+
+{
+title:"Pelayan",
+company:"Restoran Seafood",
+location:"Wakatobi",
+salary:"2.200.000",
+skills:["pelayan","restoran","makanan","minuman","pelayanan"]
+}
+
+]
+
+/* =========================
+AI MATCHING ENGINE
+========================= */
+
+function calculateMatch(userInput,jobSkills){
+
+let words=userInput.toLowerCase().split(" ")
+
+let score=0
+
+words.forEach(word=>{
+if(jobSkills.includes(word)){
+score++
+}
+})
+
+let percent=Math.round((score/jobSkills.length)*100)
+
+return percent
 
 }
 
-/* SEARCH */
+/* =========================
+RENDER JOB
+========================= */
+
+function renderJobs(data){
+
+let jobList=document.getElementById("jobList")
+
+jobList.innerHTML=""
+
+data.forEach(job=>{
+
+let card=document.createElement("div")
+card.className="job-card"
+
+card.innerHTML=`
+
+<h3>${job.title}</h3>
+<p>${job.company}</p>
+<p>📍 ${job.location}</p>
+<p>💰 ${job.salary}</p>
+
+<div class="match">
+<p>AI Match ${job.match || 0}%</p>
+<div class="bar">
+<div class="fill" style="width:${job.match || 0}%"></div>
+</div>
+</div>
+
+<button class="apply" onclick="applyJob('${job.title}')">
+Lamaran WhatsApp
+</button>
+
+`
+
+jobList.appendChild(card)
+
+})
+
+}
+
+/* tampilkan pertama */
+
+renderJobs(jobsDatabase)
+
+/* =========================
+AI SEARCH SYSTEM
+========================= */
 
 document.getElementById("searchInput").addEventListener("keyup",function(){
 
-let filter=this.value.toLowerCase()
+let input=this.value
 
-let jobs=document.querySelectorAll(".job-card")
+if(input===""){
+renderJobs(jobsDatabase)
+return
+}
 
-jobs.forEach(function(job){
+let results=[]
 
-let text=job.innerText.toLowerCase()
+jobsDatabase.forEach(job=>{
 
-job.style.display=text.includes(filter)?"block":"none"
+let match=calculateMatch(input,job.skills)
+
+if(match>0){
+
+job.match=match
+
+results.push(job)
+
+}
 
 })
 
+/* AI Ranking */
+
+results.sort((a,b)=>b.match-a.match)
+
+renderJobs(results)
+
 })
 
-/* WHATSAPP APPLY */
-  
+/* =========================
+WHATSAPP APPLY
+========================= */
+
 function applyJob(job){
 
 let text="Halo saya ingin melamar pekerjaan "+job
@@ -431,7 +542,7 @@ window.open(url)
 
 }
 
-</script>
+  </script>
 
 </body>
   </html>
