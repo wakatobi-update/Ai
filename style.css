@@ -12,14 +12,6 @@ padding:8px 15px;
 font-weight:bold;
 }
 
-.breaking-text{
-white-space:nowrap;
-padding-left:20px;
-animation:scrollNews 15s linear infinite;
-}
-
-@keyframes scrollNews{
-
 0%{
 transform:translateX(100%);
 }
