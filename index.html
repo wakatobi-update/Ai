@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wakatobi Update - Berita dan Informasi Terbaru</title>
+<title>IKITA - Jual Beli Sekitar Kita</title>
 
-<meta name="description" content="Portal berita Wakatobi terbaru hari ini">
-<meta name="keywords" content="Wakatobi news, berita Wakatobi, wisata Wakatobi">
-<meta name="author" content="Wakatobi Update">
+<meta name="description" content="Platform jual beli lokal masyarakat Wakatobi">
+<meta name="keywords" content="jual beli wakatobi, marketplace wakatobi, ikita">
+<meta name="author" content="IKITA">
 
 <link rel="stylesheet" href="style.css">
 
@@ -26,48 +26,86 @@
 
 <div class="header-top">
 
-<div class="logo">Wakatobi Update</div>
+<div class="logo">IKITA</div>
 
 <div class="header-icons">
-<i class="fas fa-search" onclick="toggleSearch()"></i>
-<i class="fas fa-globe"></i>
+<i class="fas fa-search"></i>
+<i class="fas fa-map-location-dot"></i>
 <i class="fas fa-bars" onclick="toggleMenu()"></i>
 </div>
 
 </div>
 
-<div id="searchBox">
-<input 
-type="text"
-id="searchInput"
-placeholder="Cari berita..."
-onkeyup="searchNews()"
->
-</div>
-
 <nav class="menu-scroll">
-<a href="#">Home</a>
-<a href="#">News</a>
-<a href="#">Daerah</a>
-<a href="#">Wisata</a>
-<a href="#">Kuliner</a>
-<a href="#">Event</a>
-<a href="#">Ekonomi</a>
-<a href="#">Transportasi</a>
+<a href="#">Beranda</a>
+<a href="#">Jualan</a>
+<a href="#">Map</a>
+<a href="#">Pesan</a>
+<a href="#">Profil</a>
 </nav>
 
 </header>
 
 
-<!-- KONTEN WEBSITE (DIKOSONGKAN DULU) -->
+<!-- FORM TAMBAH JUALAN -->
 
 <section class="section">
 
-<h2>Konten</h2>
+<h2>Tambah Jualan</h2>
 
-<div class="news-list" id="news-container">
+<div class="jual-form">
 
-<!-- nanti berita baru muncul di sini -->
+<input type="text" placeholder="Nama Barang">
+
+<input type="text" placeholder="Harga">
+
+<input type="text" placeholder="Lokasi Jualan">
+
+<input type="text" placeholder="Nomor WhatsApp">
+
+<button>Posting</button>
+
+</div>
+
+</section>
+
+
+<!-- LIST PRODUK -->
+
+<section class="section">
+
+<h2>Jualan Terbaru</h2>
+
+<div class="market-list">
+
+<div class="item">
+
+<img src="gallery/contoh.jpg">
+
+<h3>Ikan Segar</h3>
+
+<p>Rp30.000</p>
+
+<p>📍 Wangi-wangi</p>
+
+<a href="https://wa.me/628000000000">Chat Penjual</a>
+
+</div>
+
+
+<div class="item">
+
+<img src="gallery/contoh.jpg">
+
+<h3>Kue Tradisional</h3>
+
+<p>Rp10.000</p>
+
+<p>📍 Kaledupa</p>
+
+<a href="https://wa.me/628000000000">Chat Penjual</a>
+
+</div>
 
 </div>
 
@@ -76,31 +114,27 @@ onkeyup="searchNews()"
 
 <footer class="footer">
 
-<h2>Wakatobi Update</h2>
+<h2>IKITA</h2>
 
 <p class="footer-desc">
-Portal berita dan informasi terpercaya seputar Wakatobi,
+Platform jual beli lokal untuk masyarakat Wakatobi,
 Sulawesi Tenggara, Indonesia.
 </p>
 
 <div class="footer-links">
 
-<h3>Company Profile</h3>
+<h3>Company</h3>
 
 <a href="tentang.html">Tentang Kami</a>
 <a href="kontak.html">Kontak Kami</a>
-<a href="disclaimer.html">Disclaimer</a>
-<a href="privacy.html">Privacy Policy</a>
 
 </div>
 
 <div class="footer-contact">
 
-<h3>Kontak</h3>
+<h3>Lokasi</h3>
 
-<p><i class="fa-solid fa-location-dot"></i> Wakatobi, Sulawesi Tenggara, Indonesia</p>
-
-<p><i class="fa-solid fa-envelope"></i> redaksi@wakatobiupdate.com</p>
+<p><i class="fa-solid fa-location-dot"></i> Wakatobi, Sulawesi Tenggara</p>
 
 </div>
 
@@ -109,14 +143,13 @@ Sulawesi Tenggara, Indonesia.
 <a href="#"><i class="fab fa-instagram"></i></a>
 <a href="#"><i class="fab fa-facebook"></i></a>
 <a href="#"><i class="fab fa-tiktok"></i></a>
-<a href="#"><i class="fa-solid fa-envelope"></i></a>
 
 </div>
 
 <p class="copyright">
-© 2026 Wakatobi Update
+© 2026 IKITA
 </p>
- 
+
 </footer>
 
 <script src="script.js"></script>
