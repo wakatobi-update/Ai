@@ -67,3 +67,28 @@ container.innerHTML+=`
 }
 
 document.addEventListener("DOMContentLoaded",loadNews)
+function loadTrending(data){
+
+let container = document.getElementById("trending-news")
+
+if(!container) return
+
+container.innerHTML=""
+
+data.slice(0,3).forEach(news=>{
+
+container.innerHTML+=`
+
+<div class="news-card">
+
+<h3>${news.title}</h3>
+
+<p>${news.content}</p>
+
+</div>
+
+`
+
+})
+
+}
