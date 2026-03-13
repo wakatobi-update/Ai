@@ -14,6 +14,15 @@ menu.style.display = "flex"
 
 }
 
+// HAMBURGER MENU
+
+function toggleMenu(){
+
+let menu = document.getElementById("hamburgerMenu")
+
+menu.classList.toggle("show")
+
+}
 
 // ======================
 // SEARCH
