@@ -10,28 +10,85 @@
   
 <style>
 
-.article{
-max-width:800px;
-margin:auto;
-padding:15px;
-font-size:18px;
-line-height:1.7;
-color:#222;
+body{
+font-family:Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
 }
 
-.article p{
-margin-bottom:18px;
+/* HERO */
+.hero{
+padding:20px;
+background:white;
+}
+
+/* BERITA UTAMA */
+.main-news h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+/* GRID BERITA */
+.news-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+/* KARTU BERITA */
+.news-card{
+background:white;
+padding:15px;
+border-radius:8px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+transition:0.2s;
+}
+
+.news-card:hover{
+transform:translateY(-4px);
+}
+
+.news-card h3{
+font-size:18px;
+margin-bottom:8px;
+}
+
+.news-card p{
+font-size:14px;
+color:#555;
+}
+
+/* SECTION */
+.section{
+padding:20px;
+}
+
+/* ARTIKEL */
+.article{
+max-width:800px;
+margin:40px auto;
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .article h1{
 font-size:28px;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
 .article img{
 width:100%;
 border-radius:8px;
-margin:15px 0;
+margin-bottom:20px;
+}
+
+.article p{
+font-size:16px;
+line-height:1.6;
+margin-bottom:15px;
 }
 
 /* HEADER */
@@ -248,47 +305,26 @@ Ribuan pengunjung menghadiri festival budaya tahunan yang digelar di Wakatobi.
 
 </div>
 
-
 <div class="news-grid">
 
 <div class="news-card">
-  
-<h1>Wisata Baru di Pulau Tomia</h1>
-  
-<p>
-Destinasi wisata baru mulai menarik perhatian wisatawan.
-</p>
-  
+<h3>Wisata Baru di Pulau Tomia</h3>
+<p>Destinasi wisata baru mulai menarik perhatian wisatawan.</p>
 </div>
 
 <div class="news-card">
-  
-<h1>Kuliner Khas Wakatobi yang Viral</h1>
-  
-<p>
-Beberapa makanan lokal kini menjadi favorit wisatawan.
-</p>
-  
+<h3>Kuliner Khas Wakatobi yang Viral</h3>
+<p>Beberapa makanan lokal kini menjadi favorit wisatawan.</p>
 </div>
 
 <div class="news-card">
-  
-<h1>Harga Tiket Kapal Wakatobi Terbaru</h1>
-  
-<p>
-Informasi terbaru mengenai harga transportasi menuju Wakatobi.
-</p>
-  
+<h3>Harga Tiket Kapal Wakatobi Terbaru</h3>
+<p>Informasi terbaru mengenai harga transportasi menuju Wakatobi.</p>
 </div>
 
 <div class="news-card">
-  
-<h1>Event Musik Pantai Wakatobi</h1>
-  
-<p>
-Event musik pantai akan digelar akhir pekan ini.
-</p>
-  
+<h3>Event Musik Pantai Wakatobi</h3>
+<p>Event musik pantai akan digelar akhir pekan ini.</p>
 </div>
 
 </div>
@@ -298,31 +334,26 @@ Event musik pantai akan digelar akhir pekan ini.
 
 <section class="section">
 
-<h1>Wisata Wakatobi</h1>
+<h2>Wisata Wakatobi</h2>
 
 <div class="news-grid">
 
 <div class="news-card">
-  
-<h1>5 Pantai Terindah di Wakatobi</h1>
-  
-<p> 
-Rekomendasi pantai terbaik yang wajib dikunjungi.
-</p>
-  
+<h3>5 Pantai Terindah di Wakatobi</h3>
+<p>Rekomendasi pantai terbaik yang wajib dikunjungi.</p>
 </div>
 
 <div class="news-card">
-  
-<h1>Diving Terbaik di Dunia Ada di Wakatobi</h1>
-  
-<p>  
-Keindahan bawah laut Wakatobi menarik wisatawan dunia.
-</p>
-  
+<h3>Diving Terbaik di Dunia Ada di Wakatobi</h3>
+<p>Keindahan bawah laut Wakatobi menarik wisatawan dunia.</p>
 </div>
-  
-<div class="article">
+
+</div>
+
+</section>
+
+
+<section class="article">
 
 <h1>Festival Budaya Wakatobi 2026 Resmi Dibuka</h1>
 
@@ -339,9 +370,6 @@ Acara ini menampilkan berbagai pertunjukan budaya lokal seperti tarian tradision
 <p>
 Pemerintah daerah berharap kegiatan ini dapat meningkatkan jumlah wisatawan yang datang ke Wakatobi setiap tahunnya.
 </p>
-
-</div>
-</div>
 
 </section>
 
