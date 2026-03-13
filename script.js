@@ -93,7 +93,6 @@ container.innerHTML+=`
 })
 
 }
-<script>
 
 function scrollToTop(){
 window.scrollTo({
@@ -102,3 +101,45 @@ behavior:"smooth"
 });
 }
 
+function publishAINews(){
+
+let titles=[
+"Wakatobi Jadi Destinasi Wisata Favorit",
+"Festival Budaya Wakatobi Menarik Turis",
+"Keindahan Laut Wakatobi Mendunia",
+"Pariwisata Wakatobi Terus Berkembang"
+]
+
+let contents=[
+"Wakatobi dikenal dengan keindahan laut dan terumbu karangnya yang memukau wisatawan.",
+"Banyak wisatawan datang untuk menikmati budaya dan alam Wakatobi.",
+"Pemerintah daerah terus mengembangkan sektor pariwisata di Wakatobi.",
+"Wakatobi menjadi salah satu tujuan wisata laut terbaik di Indonesia."
+]
+
+let title=titles[Math.floor(Math.random()*titles.length)]
+let content=contents[Math.floor(Math.random()*contents.length)]
+
+let image="https://source.unsplash.com/600x400/?wakatobi,ocean"
+
+let date=new Date().toLocaleDateString()
+
+let container=document.getElementById("news-container")
+
+container.innerHTML=`
+
+<div class="news-card">
+
+<img src="${image}" class="news-img">
+
+<h3>${title}</h3>
+
+<p>${content}</p>
+
+<small>${date}</small>
+
+</div>
+
+` + container.innerHTML
+
+}
