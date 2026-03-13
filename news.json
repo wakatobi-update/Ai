@@ -2,18 +2,21 @@
 {
 "title":"Wisata Baru di Pulau Tomia",
 "content":"Destinasi wisata baru mulai menarik perhatian wisatawan.",
-"date":"10 Maret 2026"
+"date":"10 Maret 2026",
+"image":"tomia.jpg"
 },
 
 {
 "title":"Kuliner Khas Wakatobi Viral",
 "content":"Beberapa makanan lokal kini menjadi favorit wisatawan.",
-"date":"9 Maret 2026"
+"date":"9 Maret 2026",
+"image":"kuliner.jpg"
 },
 
 {
 "title":"Harga Tiket Kapal Wakatobi Terbaru",
 "content":"Informasi terbaru mengenai harga transportasi menuju Wakatobi.",
-"date":"8 Maret 2026"
+"date":"8 Maret 2026",
+"image":"kapal.jpg"
 }
 ]
