@@ -102,4 +102,3 @@ behavior:"smooth"
 });
 }
 
-</script>
