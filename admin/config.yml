@@ -12,8 +12,10 @@ collections:
     folder: "Ai/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+
     fields:
-      - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Tanggal", name: "date", widget: "datetime"}
-      - {label: "Gambar", name: "image", widget: "image"}
-      - {label: "Isi Berita", name: "body", widget: "markdown"}
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Tanggal", name: "date", widget: "datetime" }
+      - { label: "Kategori", name: "category", widget: "string" }
+      - { label: "Gambar", name: "image", widget: "image" }
+      - { label: "Isi Berita", name: "body", widget: "markdown" }
