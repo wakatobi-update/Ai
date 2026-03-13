@@ -392,11 +392,7 @@ function toggleMenu(){
 
 let menu = document.getElementById("menu")
 
-if(menu.style.display === "flex"){
-menu.style.display = "none"
-}else{
-menu.style.display = "flex"
-}
+menu.style.display = (menu.style.display === "flex") ? "none" : "flex"
 
 }
 
@@ -405,48 +401,39 @@ function toggleSearch(){
 
 let search = document.getElementById("searchBox")
 
-if(search.style.display === "block"){
-search.style.display = "none"
-}else{
-search.style.display = "block"
-}
+search.style.display = (search.style.display === "block") ? "none" : "block"
 
 }
+
+// ================= SEARCH BERITA =================
 function searchNews(){
 
 let input = document.getElementById("searchInput").value.toLowerCase()
-
 let cards = document.querySelectorAll(".news-card")
 
 cards.forEach(card => {
 
 let text = card.innerText.toLowerCase()
 
-if(text.includes(input)){
-card.style.display = "block"
-}else{
-card.style.display = "none"
-}
+card.style.display = text.includes(input) ? "block" : "none"
 
 })
 
 }
 
 // ================= AI ERROR DETECTOR =================
-window.onerror = function(message, source, lineno){
+window.onerror = function(){
 
 console.log("AI Repair System mendeteksi error")
 
-// cegah reload terus menerus
 if(!sessionStorage.getItem("reloaded")){
 sessionStorage.setItem("reloaded", true)
-alert("Sistem memperbaiki halaman")
 location.reload()
 }
 
 }
 
-// ================= AI SEO SLUG =================
+// ================= SEO SLUG =================
 function createSlug(title){
 
 return title
@@ -456,78 +443,38 @@ return title
 
 }
 
-// ================= AI RINGKASAN BERITA =================
+// ================= RINGKASAN BERITA =================
 function makeSummary(text){
 
 return text.substring(0,120) + "..."
 
 }
 
-// ================= URUTKAN BERITA TERBARU =================
+// ================= URUTKAN BERITA =================
 function sortNews(news){
 
-return news.sort((a,b)=>{
-
-return new Date(b.date) - new Date(a.date)
-
-})
+return news.sort((a,b)=> new Date(b.date) - new Date(a.date))
 
 }
 
-// ================= LOAD NEWS SYSTEM =================
-function loadNews(){
+// ================= LOAD BERITA LOKAL =================
+function loadLocalNews(){
 
 fetch("news.json")
 .then(res => res.json())
 .then(data => {
 
-let sortedNews = sortNews(data)
-
-showNews(sortedNews)
+let sorted = sortNews(data)
+showNews(sorted)
 
 })
 .catch(error => {
 
-console.log("Server gagal, pakai backup")
-
-if(typeof localBackupNews !== "undefined"){
-showNews(localBackupNews)
-}
+console.log("Gagal mengambil berita lokal")
 
 })
 
 }
-function loadNews(){
-
-fetch("news.json")
-.then(res => res.json())
-.then(data => {
-
-let container = document.getElementById("news-container")
-
-container.innerHTML=""
-
-data.forEach(news => {
-
-container.innerHTML += `
-
-<div class="news-card">
-
-<h3>${news.title}</h3>
-
-<p>${news.content}</p>
-
-</div>
-
-`
-
-})
-
-})
-
-}
-
-document.addEventListener("DOMContentLoaded",loadNews)
 
 // ================= TAMPILKAN BERITA =================
 function showNews(news){
@@ -536,12 +483,11 @@ let container = document.getElementById("news-container")
 
 if(!container) return
 
-container.innerHTML = ""
+container.innerHTML=""
 
 news.forEach(item => {
 
 let slug = createSlug(item.title)
-
 let summary = makeSummary(item.content)
 
 container.innerHTML += `
@@ -563,6 +509,8 @@ container.innerHTML += `
 })
 
 }
+
+// ================= LOAD BERITA INTERNET =================
 function loadExternalNews(){
 
 let rss = "https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=wakatobi"
@@ -571,7 +519,9 @@ fetch(rss)
 .then(res => res.json())
 .then(data => {
 
-let container = document.getElementById("news-container")
+let container = document.getElementById("auto-news")
+
+if(!container) return
 
 container.innerHTML=""
 
@@ -596,7 +546,7 @@ container.innerHTML += `
 })
 
 }
-document.addEventListener("DOMContentLoaded",loadExternalNews)
+
 // ================= AI PAGE MONITOR =================
 function checkSystem(){
 
@@ -604,7 +554,7 @@ let news = document.querySelector(".news-card")
 
 if(!news){
 
-console.log("Berita tidak ditemukan, mencoba reload")
+console.log("Berita tidak ditemukan")
 
 if(!sessionStorage.getItem("newsReload")){
 sessionStorage.setItem("newsReload", true)
@@ -615,11 +565,15 @@ location.reload()
 
 }
 
-// Jalankan pengecekan setiap 5 detik
-setInterval(checkSystem,5000)
+// ================= JALANKAN SISTEM =================
+document.addEventListener("DOMContentLoaded", () => {
 
-// Jalankan load berita saat halaman dibuka
-document.addEventListener("DOMContentLoaded", loadNews)
+loadLocalNews()
+loadExternalNews()
+
+})
+
+setInterval(checkSystem,5000)
 
 </script>
   
