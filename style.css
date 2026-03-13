@@ -349,6 +349,52 @@ z-index:99999;
 display:flex;
 flex-direction:column;
 gap:10px;
+
+  /* PERBAIKI FOOTER AGAR RAPI */
+
+.footer-links{
+display:flex;
+flex-direction:column;
+gap:8px;
+margin-top:15px;
+}
+
+.footer-links a{
+color:#ddd;
+text-decoration:none;
+font-size:15px;
+}
+
+.footer-links a:hover{
+color:white;
+}
+
+.footer-contact{
+margin-top:20px;
+font-size:15px;
+line-height:1.7;
+}
+
+.footer-social{
+margin-top:25px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.footer-social a{
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:#e74c3c;
+color:white;
+font-size:18px;
+text-decoration:none;
+  }
 margin-top:10px;
 }
 
