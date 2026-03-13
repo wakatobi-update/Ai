@@ -111,10 +111,6 @@ function toggleMenu(){
 
 let menu = document.getElementById("hamburgerMenu")
 
-if(menu.classList.contains("show")){
-menu.classList.remove("show")
-}else{
-menu.classList.add("show")
-}
+menu.classList.toggle("show")
 
 }
