@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Wakatobi Update</title>
 
+<style>
+body{
+font-family:Arial;
+background:#f2f2f2;
+padding:20px;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+background:#007bff;
+color:white;
+border:none;
+padding:12px 20px;
+cursor:pointer;
+}
+
+.preview{
+background:white;
+padding:20px;
+margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Tambah Berita</h2>
+
+<input id="judul" placeholder="Judul Berita">
+
+<textarea id="isi" rows="6" placeholder="Isi berita"></textarea>
+
+<input id="gambar" placeholder="Link gambar">
+
+<button onclick="buatBerita()">Publish</button>
+
+<div class="preview" id="preview"></div>
+
+<script>
+
+function buatBerita(){
+
+let judul=document.getElementById("judul").value
+let isi=document.getElementById("isi").value
+let gambar=document.getElementById("gambar").value
+
+let html=`
+
+<div style="margin-bottom:30px">
+<h2>${judul}</h2>
+<img src="${gambar}" style="width:100%;border-radius:8px">
+<p>${isi}</p>
+</div>
+
+`
+
+document.getElementById("preview").innerHTML+=html
+
+localStorage.setItem("berita",document.getElementById("preview").innerHTML)
+
+}
+
+document.getElementById("preview").innerHTML=localStorage.getItem("berita") || ""
+
+</script>
+
+</body>
+</html>
