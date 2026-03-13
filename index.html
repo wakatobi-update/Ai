@@ -208,6 +208,17 @@ margin-top:40px;
 <i class="fas fa-bars"></i>
 </div>
 
+<div id="searchBox" style="display:none; padding:10px;">
+
+<input 
+type="text"
+id="searchInput"
+placeholder="Cari berita..."
+onkeyup="searchNews()"
+style="width:100%; padding:10px; border-radius:6px;"
+>
+
+</div>
 </div>
 
 <nav class="menu-scroll">
@@ -370,6 +381,25 @@ search.style.display = "none"
 }else{
 search.style.display = "block"
 }
+
+}
+function searchNews(){
+
+let input = document.getElementById("searchInput").value.toLowerCase()
+
+let cards = document.querySelectorAll(".news-card")
+
+cards.forEach(card => {
+
+let text = card.innerText.toLowerCase()
+
+if(text.includes(input)){
+card.style.display = "block"
+}else{
+card.style.display = "none"
+}
+
+})
 
 }
 
