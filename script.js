@@ -183,3 +183,52 @@ ${news.title}
 }
 
 document.addEventListener("DOMContentLoaded",loadNews)
+
+fetch("news.json")
+.then(res=>res.json())
+.then(data=>{
+
+let headline=document.getElementById("headline")
+let container=document.getElementById("news-list")
+
+// HEADLINE
+let top=data[0]
+
+headline.innerHTML=`
+
+<div class="headline">
+
+<img src="${top.image}" class="headline-img">
+
+<h1>${top.title}</h1>
+
+<p>${top.content}</p>
+
+</div>
+
+`
+
+// BERITA LAIN
+for(let i=1;i<data.length;i++){
+
+let news=data[i]
+
+container.innerHTML+=`
+
+<div class="news-card">
+
+<img src="${news.image}" class="news-img">
+
+<h3>${news.title}</h3>
+
+<p>${news.content}</p>
+
+<span>${news.date}</span>
+
+</div>
+
+`
+
+}
+
+})
