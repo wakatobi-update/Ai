@@ -143,3 +143,41 @@ container.innerHTML=`
 ` + container.innerHTML
 
 }
+
+function loadNews(){
+
+fetch("news.json")
+.then(res=>res.json())
+.then(data=>{
+
+let container=document.getElementById("news-container")
+
+container.innerHTML=""
+
+data.forEach((news,i)=>{
+
+container.innerHTML+=`
+
+<div class="news-card">
+
+<h3>
+<a href="article.html?id=${i}">
+${news.title}
+</a>
+</h3>
+
+<p>${news.content.substring(0,100)}...</p>
+
+<small>${news.date}</small>
+
+</div>
+
+`
+
+})
+
+})
+
+}
+
+document.addEventListener("DOMContentLoaded",loadNews)
