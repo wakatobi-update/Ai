@@ -2,6 +2,7 @@ backend:
   name: github
   repo: wakatobi-update/wakatobi-update.github.io
   branch: main
+  open_authoring: true
 
 media_folder: "Ai/images"
 public_folder: "/Ai/images"
@@ -11,6 +12,8 @@ collections:
     label: "Berita"
     folder: "Ai/news"
     create: true
+    slug: "{{slug}}"
+
     fields:
       - { label: "Judul", name: "title", widget: "string" }
       - { label: "Tanggal", name: "date", widget: "datetime" }
