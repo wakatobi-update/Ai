@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: wakatobi-update/Ai
+  repo: wakatobi-update/wakatobi-update.github.io
   branch: main
   client_id: 0v23livfAnI4r20dB9h8
 
