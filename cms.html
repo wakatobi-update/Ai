@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CMS Wakatobi Update</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+padding:20px;
+}
+
+.box{
+background:white;
+padding:20px;
+border-radius:8px;
+max-width:600px;
+margin:auto;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+background:#e11d48;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.preview{
+margin-top:30px;
+}
+
+.news{
+background:white;
+padding:15px;
+border-radius:8px;
+margin-bottom:20px;
+}
+
+.news img{
+width:100%;
+border-radius:6px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Tambah Berita</h2>
+
+<input id="title" placeholder="Judul berita">
+
+<input id="image" placeholder="Link gambar">
+
+<textarea id="content" placeholder="Isi berita"></textarea>
+
+<button onclick="publishNews()">Publish</button>
+
+</div>
+
+<div class="preview" id="preview"></div>
+
+<script>
+
+let newsData = JSON.parse(localStorage.getItem("news")) || []
+
+function publishNews(){
+
+let title=document.getElementById("title").value
+let image=document.getElementById("image").value
+let content=document.getElementById("content").value
+
+let news={
+title:title,
+image:image,
+content:content
+}
+
+newsData.unshift(news)
+
+localStorage.setItem("news",JSON.stringify(newsData))
+
+renderNews()
+
+}
+
+function renderNews(){
+
+let container=document.getElementById("preview")
+
+container.innerHTML=""
+
+newsData.forEach(n=>{
+
+container.innerHTML+=`
+
+<div class="news">
+
+<h3>${n.title}</h3>
+
+<img src="${n.image}">
+
+<p>${n.content}</p>
+
+</div>
+
+`
+
+})
+
+}
+
+renderNews()
+
+</script>
+
+</body>
+  </html>
