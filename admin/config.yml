@@ -1,20 +1,19 @@
 backend:
   name: github
-  repo: wakatobi-update/wakatobi-update.github.io
+  repo: wakatobi-update/Ai
   branch: main
-  client_id: 0v23livfAnI4r20dB9h8
 
-media_folder: "gallery"
-public_folder: "/gallery"
+media_folder: "Ai/gallery"
+public_folder: "/Ai/gallery"
 
 collections:
   - name: "berita"
     label: "Berita"
-    folder: "news"
+    folder: "Ai/news"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Isi Berita", name: "content", widget: "text"}
+      - {label: "Isi Berita", name: "body", widget: "markdown"}
       - {label: "Tanggal", name: "date", widget: "datetime"}
       - {label: "Gambar", name: "image", widget: "image"}
