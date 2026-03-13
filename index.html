@@ -347,29 +347,78 @@ Pemerintah daerah berharap kegiatan ini dapat meningkatkan jumlah wisatawan yang
 
 <script>
 
+// MENU
 function toggleMenu(){
 
-let menu=document.getElementById("menu")
+let menu = document.getElementById("menu")
 
-if(menu.style.display==="flex"){
-menu.style.display="none"
+if(menu.style.display === "flex"){
+menu.style.display = "none"
 }else{
-menu.style.display="flex"
+menu.style.display = "flex"
 }
 
 }
 
+// SEARCH
 function toggleSearch(){
 
-let search=document.getElementById("searchBox")
+let search = document.getElementById("searchBox")
 
-if(search.style.display==="block"){
-search.style.display="none"
+if(search.style.display === "block"){
+search.style.display = "none"
 }else{
-search.style.display="block"
+search.style.display = "block"
 }
 
 }
+
+// AI ERROR DETECTOR
+window.onerror = function(message, source, lineno){
+
+console.log("AI Repair System mendeteksi error")
+
+alert("Sistem mencoba memperbaiki halaman")
+
+location.reload()
+
+}
+
+// LOAD NEWS SYSTEM
+function loadNews(){
+
+fetch("news.json")
+.then(res => res.json())
+.then(data => showNews(data))
+.catch(error => {
+
+console.log("Server gagal, pakai backup")
+
+if(typeof localBackupNews !== "undefined"){
+showNews(localBackupNews)
+}
+
+})
+
+}
+
+// AI PAGE MONITOR
+function checkSystem(){
+
+let news = document.querySelector(".news-card")
+
+if(!news){
+
+console.log("Berita tidak ditemukan, sistem memperbaiki")
+
+location.reload()
+
+}
+
+}
+
+// Jalankan pengecekan setiap 5 detik
+setInterval(checkSystem,5000)
 
 </script>
   
