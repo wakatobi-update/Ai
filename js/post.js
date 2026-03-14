@@ -36,10 +36,6 @@ preview.style.display = "block"
 
 }
 
-/* =========================
-PERBAIKAN FUNGSI POSTING
-========================= */
-
 function postingStatus(){
 
 alert("tombol berfungsi")
@@ -53,12 +49,6 @@ return
 }
 
 let feed = document.querySelector(".feed")
-
-/* jika feed tidak ada, hentikan agar tidak error */
-if(!feed){
-console.log("Feed tidak ditemukan")
-return
-}
 
 let post = document.createElement("div")
 
@@ -79,7 +69,7 @@ ${imgHTML}
 
 <h3>${text}</h3>
 
-<p class="location">📍 Sekitar kamu • ${getTime ? getTime() : ""}</p>
+<p class="location">📍 Sekitar kamu</p>
 
 <div class="product-action">
 
@@ -95,15 +85,10 @@ ${imgHTML}
 
 feed.prepend(post)
 
-/* simpan jika fungsi tersedia */
-if(typeof savePosts === "function"){
-savePosts()
-}
-
 document.getElementById("postText").value = ""
 document.getElementById("postImage").value = ""
 document.getElementById("previewImg").style.display = "none"
 
 alert("Posting berhasil!")
 
-  }
+}
