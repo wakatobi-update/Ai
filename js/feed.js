@@ -43,3 +43,11 @@ btn.classList.toggle("liked")
 }
 
 })
+
+function savePosts(){
+
+let posts = document.querySelector(".feed").innerHTML
+
+localStorage.setItem("ikita_posts", posts)
+
+}
