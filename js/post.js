@@ -37,6 +37,8 @@ preview.style.display = "block"
 }
 
 function postingStatus(){
+alert("tombol berfungsi")
+}
 
 let text = document.getElementById("postText").value
 
