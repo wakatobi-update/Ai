@@ -79,7 +79,8 @@ HOME CONTAINER
 
 .home{
 padding:20px;
-max-width:100px;
+width:100%;
+max-width:500px;
 margin:auto;
 }
 
@@ -370,8 +371,3 @@ height:auto;
 input, textarea{
 width:100%;
   }
-
-body{
-margin:0;
-padding:0;
-}
