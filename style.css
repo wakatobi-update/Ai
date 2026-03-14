@@ -178,3 +178,34 @@ z-index:9999;
 .hamburger-menu.show{
 right:0;
   }
+
+/*Header*/
+
+header{
+background:#0b1b34;
+color:white;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:9999;
+box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+}
+
+.logo{
+font-size:22px;
+font-weight:700;
+font-family:'Poppins',sans-serif;
+}
+
+.menu-icon{
+font-size:20px;
+cursor:pointer;
+  }
