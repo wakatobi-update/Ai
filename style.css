@@ -1,30 +1,57 @@
 /* =========================
-POST ACTION (JUAL / BUTUH)
+HOME CONTAINER
+========================= */
+
+.home{
+padding:20px;
+max-width:600px;
+margin:auto;
+}
+
+
+/* =========================
+SEARCH BOX MODERN
+========================= */
+
+.search-box input{
+width:100%;
+padding:14px 16px;
+border-radius:25px;
+border:2px solid #0b1b34;
+font-size:15px;
+margin-bottom:15px;
+background:white;
+}
+
+
+/* =========================
+POST ACTION BUTTON
 ========================= */
 
 .post-action{
 display:flex;
-gap:10px;
-margin-bottom:15px;
+gap:12px;
+margin-bottom:20px;
 }
 
 .post-action button{
 flex:1;
 padding:14px;
 border:none;
-border-radius:12px;
+border-radius:25px;
 font-size:15px;
 font-weight:600;
 display:flex;
 align-items:center;
 justify-content:center;
-gap:6px;
+gap:8px;
 cursor:pointer;
 transition:0.2s;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 .post-action button:hover{
-transform:scale(1.02);
+transform:scale(1.03);
 }
 
 .jual-btn{
@@ -39,71 +66,23 @@ color:white;
 
 
 /* =========================
-POST FORM
+FEED
 ========================= */
 
-.post-box{
-background:white;
-padding:18px;
-border-radius:14px;
-margin-bottom:20px;
-box-shadow:0 6px 18px rgba(0,0,0,0.06);
-display:none;
-}
-
-.post-box textarea{
-width:100%;
-height:90px;
-padding:12px;
-border-radius:10px;
-border:1px solid #ddd;
-font-size:14px;
-resize:none;
-margin-bottom:10px;
-font-family:'Roboto',sans-serif;
-}
-
-.post-box input[type="file"]{
-margin-bottom:10px;
-}
-
-.post-btn{
-width:100%;
-padding:12px;
-background:#0b1b34;
-color:white;
-border:none;
-border-radius:10px;
-font-size:15px;
-font-weight:600;
+.feed{
 display:flex;
-align-items:center;
-justify-content:center;
-gap:6px;
+flex-direction:column;
+gap:18px;
 }
 
 
 /* =========================
-SEARCH UPGRADE
-========================= */
-
-.search-box input{
-width:100%;
-padding:14px;
-border-radius:12px;
-border:2px solid #0b1b34;
-font-size:15px;
-margin-bottom:15px;
-}
-
-
-/* =========================
-CARD UPGRADE
+CARD PRODUK MODERN
 ========================= */
 
 .product-card{
 background:white;
-border-radius:14px;
+border-radius:16px;
 overflow:hidden;
 box-shadow:0 8px 20px rgba(0,0,0,0.08);
 transition:0.2s;
@@ -113,136 +92,81 @@ transition:0.2s;
 transform:translateY(-3px);
 }
 
+.product-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.product-info{
+padding:16px;
+}
+
 .product-info h3{
 font-size:18px;
-margin-bottom:4px;
+margin-bottom:5px;
 }
 
 .price{
 font-size:16px;
 color:#0b1b34;
 font-weight:bold;
+margin-bottom:5px;
+}
+
+.location{
+font-size:14px;
+color:#666;
+margin-bottom:10px;
+}
+
+
+/* =========================
+ACTION BUTTON
+========================= */
+
+.product-action{
+display:flex;
+gap:10px;
 }
 
 .product-action button{
+flex:1;
 border:none;
-padding:10px 12px;
-border-radius:8px;
-background:#f3f4f6;
+padding:10px;
+border-radius:10px;
+background:#f1f5f9;
 font-size:14px;
 cursor:pointer;
-}
-
-
-/* =========================
-SMOOTH MOBILE UI
-========================= */
-
-textarea:focus,
-input:focus{
-outline:none;
-border-color:#2563eb;
-box-shadow:0 0 0 2px rgba(37,99,235,0.15);
-}
-
-/*MENU SCROL*/
-
-.menu-scroll{
 display:flex;
-justify-content:space-around;
 align-items:center;
-background:#091427;
-position:fixed;
-top:60px;
-left:0;
-width:100%;
-z-index:9998;
+justify-content:center;
+gap:5px;
 }
 
-.hamburger-menu{
-position:fixed;
-top:60px;
-right:-250px;
-width:220px;
-height:100%;
-background:white;
-box-shadow:-3px 0 10px rgba(0,0,0,0.2);
-padding:20px;
-display:flex;
-flex-direction:column;
-gap:12px;
-transition:0.3s;
-z-index:9999;
+.product-action button:hover{
+background:#e2e8f0;
 }
 
-.hamburger-menu.show{
-right:0;
-  }
 
 /* =========================
-HEADER
+FLOATING POST BUTTON
 ========================= */
 
-header{
+.float-post{
+position:fixed;
+bottom:25px;
+right:20px;
+width:55px;
+height:55px;
 background:#0b1b34;
 color:white;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:9999;
-box-shadow:0 2px 10px rgba(0,0,0,0.2);
-}
-
-.header-top{
+border-radius:50%;
 display:flex;
-justify-content:space-between;
 align-items:center;
-padding:15px 20px;
-}
-
-.logo{
-font-family:'Poppins', sans-serif;
+justify-content:center;
 font-size:22px;
-font-weight:700;
-}
-
-.menu-icon{
-font-size:20px;
+box-shadow:0 6px 18px rgba(0,0,0,0.2);
 cursor:pointer;
-color:white;
-}
-
-/* =========================
-MENU ATAS
-========================= */
-
-.menu-scroll{
-display:flex;
-justify-content:space-around;
-align-items:center;
-background:#091427;
-position:fixed;
-top:60px;
-left:0;
-width:100%;
-z-index:9998;
-}
-
-.menu-scroll a{
-color:white;
-text-decoration:none;
-font-family:'Poppins', sans-serif;
-font-size:14px;
-padding:12px 10px;
-}
-
-.menu-scroll a:hover{
-color:#4da3ff;
-}
-
-body{
-padding-top:120px;
-background:#f4f4f4;
-font-family:'Roboto',sans-serif;
+z-index:9999;
 }
