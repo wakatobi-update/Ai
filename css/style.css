@@ -1,3 +1,4 @@
+
 /* ===== MOBILE FIX ===== */
 
 html, body{
@@ -370,4 +371,55 @@ height:auto;
 
 input, textarea{
 width:100%;
+  }
+
+/* =========================
+ANTI GESER KIRI KANAN FIX
+========================= */
+
+/* paksa semua elemen tidak lebih lebar dari layar */
+html, body{
+width:100%;
+max-width:100%;
+overflow-x:hidden;
+}
+
+/* semua elemen ikut batas layar */
+*,
+*::before,
+*::after{
+max-width:100%;
+}
+
+/* pastikan flex tidak keluar layar */
+.feed,
+.post-action,
+.product-action{
+width:100%;
+overflow:hidden;
+}
+
+/* header dan menu jangan melebihi layar */
+header,
+.menu-scroll{
+max-width:100%;
+overflow:hidden;
+}
+
+/* gambar tidak boleh memaksa lebar */
+img{
+max-width:100%;
+height:auto;
+display:block;
+}
+
+/* cegah tombol membuat overflow */
+button{
+max-width:100%;
+}
+
+/* cegah card keluar layar */
+.product-card{
+width:100%;
+max-width:100%;
   }
