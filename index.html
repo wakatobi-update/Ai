@@ -2,9 +2,9 @@
 <html lang="id">
 
 <head>
-  
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,14 +18,12 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 
 <body>
 
 <header>
-  
+
 <div class="header-top">
 
 <div class="logo">IKITA</div>
@@ -37,20 +35,24 @@
 <nav class="menu-scroll">
 
 <a href="index.html">Beranda</a>
-<a href="#jualan">Jualan</a>
 <a href="map.html">Map</a>
 <a href="#">Pesan</a>
 <a href="profil.html">Profil</a>
 
 </nav>
 
+</div>
+
 </header>
+
+
+<!-- MENU HAMBURGER -->
 
 <div id="hamburgerMenu" class="hamburger-menu">
 
 <h3>Menu</h3>
-<a href="#">Tentang Kami</a>
-<a href="#">Kontak Kami</a>
+<a href="tentang.html">Tentang Kami</a>
+<a href="kontak.html">Kontak Kami</a>
 <a href="#">Bantuan</a>
 <a href="#">Kebijakan Privasi</a>
 
@@ -63,30 +65,57 @@
 
 </div>
 
+
 <section class="home">
 
+<!-- SEARCH -->
+
 <div class="search-box">
-<input type="text" placeholder="Cari barang di sekitar...">
+<input type="text" placeholder="Cari barang atau bantuan di sekitar...">
 </div>
 
-<div class="kategori">
 
-<button>Semua</button>
-<button>Makanan</button>
-<button>Ikan</button>
-<button>Jasa</button>
-<button>Barang</button>
+<!-- TOMBOL POST -->
+
+<div class="post-action">
+
+<button class="jual-btn">
+<i class="fa-solid fa-store"></i>
+Jual Barang
+</button>
+
+<button class="cari-btn">
+<i class="fa-solid fa-magnifying-glass"></i>
+Butuh Barang
+</button>
 
 </div>
+
+
+<!-- STATUS POST -->
 
 <div class="post-box">
 
-<p>Apa yang ingin kamu jual?</p>
-<button class="post-btn">+ Tambah Jualan</button>
+<textarea placeholder="Tulis apa yang ingin kamu jual atau cari..."></textarea>
+
+<div class="post-tools">
+
+<input type="file">
+
+<button class="post-btn">
+<i class="fa-solid fa-paper-plane"></i>
+Posting
+</button>
 
 </div>
 
+</div>
+
+
+<!-- FEED POST -->
+
 <div class="feed">
+
 
 <div class="product-card">
 
@@ -94,27 +123,62 @@
 
 <div class="product-info">
 
-<h3>Ikan Segar</h3>
+<h3>🐟 Ikan Segar</h3>
+
 <p class="price">Rp30.000</p>
-<p class="location">📍 Wangi-Wangi</p>
+
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Wangi-Wangi
+</p>
 
 <div class="product-action">
 
-<div class="aksi">
-
 <button class="chat">
-<i class="fa-solid fa-comments"></i> Chat
+<i class="fa-solid fa-comments"></i>
+Chat
 </button>
 
 <button class="map">
-<i class="fa-solid fa-location-dot"></i> Map
+<i class="fa-solid fa-location-dot"></i>
+Map
 </button>
 
 <button class="love">
 <i class="fa-solid fa-heart"></i>
 </button>
 
-  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="product-card">
+
+<div class="product-info">
+
+<h3>🔎 Butuh Bensin</h3>
+
+<p>Saya mogok di jalan, ada yang jual bensin?</p>
+
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Wangi-Wangi
+</p>
+
+<div class="product-action">
+
+<button class="chat">
+<i class="fa-solid fa-comments"></i>
+Bantu
+</button>
+
+<button class="map">
+<i class="fa-solid fa-location-dot"></i>
+Lokasi
+</button>
 
 </div>
 
@@ -126,50 +190,9 @@
 
 </section>
 
-
-<!-- LIST PRODUK -->
-
-<section class="section">
-
-<h2>Jualan Terbaru</h2>
-
-<div class="market-list">
-
-<div class="item">
-
-<img src="gallery/contoh.jpg">
-
-<h3>Ikan Segar</h3>
-
-<p>Rp30.000</p>
-
-<p>📍 Wangi-wangi</p>
-
-<a href="https://wa.me/628000000000">Chat Penjual</a>
-
-</div>
-
-
-<div class="item">
-
-<img src="gallery/contoh.jpg">
-
-<h3>Kue Tradisional</h3>
-
-<p>Rp10.000</p>
-
-<p>📍 Kaledupa</p>
-
-<a href="https://wa.me/628000000000">Chat Penjual</a>
-
-</div>
-
-</div>
-
-</section>
 
 <script src="script.js"></script>
 
 </body>
-  </html>
-  
+
+                                                                      </html>
