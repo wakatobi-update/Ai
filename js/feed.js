@@ -13,7 +13,6 @@ return jam + ":" + menit
 
 }
 
-
 function searchItem(){
 
 let input = document.querySelector(".search-box input").value.toLowerCase()
@@ -33,16 +32,6 @@ item.style.display = "none"
 })
 
 }
-
-document.addEventListener("click", function(e){
-
-let btn = e.target.closest(".love")
-
-if(btn){
-btn.classList.toggle("liked")
-}
-
-})
 
 function savePosts(){
 
@@ -68,6 +57,7 @@ let btn = e.target.closest(".love")
 
 if(btn){
 btn.classList.toggle("liked")
+savePosts()
 }
 
 })
