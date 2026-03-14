@@ -13,15 +13,6 @@ return jam + ":" + menit
 
 }
 
-document.addEventListener("click", function(e){
-
-if(e.target.classList.contains("love")){
-
-e.target.classList.toggle("liked")
-
-}
-
-})
 
 function searchItem(){
 
@@ -42,3 +33,11 @@ item.style.display = "none"
 })
 
 }
+
+document.addEventListener("click", function(e){
+
+if(e.target.classList.contains("love")){
+e.target.classList.toggle("liked")
+}
+
+})
