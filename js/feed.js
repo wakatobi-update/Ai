@@ -51,3 +51,13 @@ let posts = document.querySelector(".feed").innerHTML
 localStorage.setItem("ikita_posts", posts)
 
 }
+
+window.onload = function(){
+
+let saved = localStorage.getItem("ikita_posts")
+
+if(saved){
+document.querySelector(".feed").innerHTML = saved
+}
+
+}
