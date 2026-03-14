@@ -647,8 +647,9 @@ transform:translateY(0);
 }
 
 .profile-container{
-margin-top:140px;
-}
+max-width:500px;
+margin:140px auto 40px auto;
+  }
 
 .profile-container{
 background:white;
