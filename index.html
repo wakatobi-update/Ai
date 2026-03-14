@@ -99,14 +99,16 @@ Butuh Barang
 
 <textarea id="postText" placeholder="Tulis apa yang ingin kamu jual atau cari..."></textarea>
 
-<input type="file" id="postImage" accept="image/*">
+<input type="file" id="postImage" accept="image/*" onchange="previewImage()">
+
+<img id="previewImg" style="display:none; width:100%; margin-top:10px; border-radius:10px;">
 
 <button class="post-btn" onclick="postingStatus()">
 <i class="fa-solid fa-paper-plane"></i>
 Posting
-  </button>
+</button>
 
-</div>
+  </div>
 
 
 <!-- FEED POST -->
