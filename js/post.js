@@ -21,6 +21,8 @@ behavior:"smooth"
 }
 
 function postingStatus(){
+console.log("posting jalan")
+}
 
 let text = document.getElementById("postText").value
 let image = document.getElementById("postImage").files[0]
