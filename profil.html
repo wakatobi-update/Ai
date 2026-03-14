@@ -1,133 +1,171 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
+<script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================
+IKITA PROFILE SYSTEM
+========================= */
 
-<title>Profil - IKITA</title>
+/* ambil elemen */
+const photoInput = document.getElementById("uploadPhoto");
+const profilePhoto = document.getElementById("profilePhoto");
+const nameInput = document.getElementById("profileName");
+const locationInput = document.getElementById("profileLocation");
+const bioInput = document.getElementById("profileBio");
 
-<link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+/* =========================
+UPLOAD FOTO PROFIL
+========================= */
 
-</head>
+if(photoInput){
+photoInput.addEventListener("change", function(){
 
-<body>
+const file = this.files[0];
+const reader = new FileReader();
 
-<header>
+reader.onload = function(e){
 
-<div class="header-top">
+profilePhoto.src = e.target.result;
 
-<div class="logo">IKITA</div>
+localStorage.setItem("ikita_photo", e.target.result);
 
-<div class="header-icons">
-<i class="fas fa-search"></i>
-<i class="fas fa-map-location-dot"></i>
-<i class="fas fa-bars"></i>
+};
+
+if(file){
+reader.readAsDataURL(file);
+}
+
+});
+}
+
+
+/* =========================
+SIMPAN PROFIL
+========================= */
+
+function saveProfile(){
+
+const name = nameInput.value;
+const location = locationInput.value;
+const bio = bioInput.value;
+
+localStorage.setItem("ikita_name", name);
+localStorage.setItem("ikita_location", location);
+localStorage.setItem("ikita_bio", bio);
+
+alert("Profil berhasil disimpan");
+
+loadProfile();
+
+}
+
+
+/* =========================
+LOAD PROFIL
+========================= */
+
+function loadProfile(){
+
+const name = localStorage.getItem("ikita_name");
+const location = localStorage.getItem("ikita_location");
+const bio = localStorage.getItem("ikita_bio");
+const photo = localStorage.getItem("ikita_photo");
+
+
+if(name){
+nameInput.value = name;
+
+document.querySelectorAll(".profile-name").forEach(el=>{
+el.innerText = name;
+});
+
+document.querySelectorAll("h2").forEach(el=>{
+el.innerText = name;
+});
+}
+
+if(location){
+locationInput.value = location;
+
+document.querySelectorAll(".profile-location").forEach(el=>{
+el.innerText = location;
+});
+
+document.querySelectorAll(".profil-card p").forEach(el=>{
+el.innerText = location;
+});
+}
+
+if(bio){
+bioInput.value = bio;
+}
+
+if(photo){
+
+profilePhoto.src = photo;
+
+document.querySelectorAll(".profile-photo").forEach(el=>{
+el.src = photo;
+});
+
+}
+
+}
+
+
+/* =========================
+POSTING DENGAN PROFIL
+========================= */
+
+function createPost(text){
+
+const name = localStorage.getItem("ikita_name") || "Pengguna";
+const photo = localStorage.getItem("ikita_photo") || "gallery/default-profile.png";
+
+const postHTML = `
+<div class="product-card">
+
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+<img src="${photo}" style="width:35px;height:35px;border-radius:50%;">
+<b>${name}</b>
 </div>
 
-</div>
-
-</header>
-
-
-<section class="profil">
-
-<div class="profil-card">
-
-<img src="https://i.pravatar.cc/150" class="profil-foto">
-
-<h2>Nama Pengguna</h2>
-
-<p>Wakatobi, Sulawesi Tenggara</p>
-
-<button>Edit Profil</button>
+<p>${text}</p>
 
 </div>
+`;
 
-</section>
+const feed = document.querySelector(".feed");
+
+if(feed){
+feed.innerHTML = postHTML + feed.innerHTML;
+}
+
+}
 
 
-<section class="profil-menu">
+/* =========================
+HALAMAN JUALAN SAYA
+========================= */
 
-<div class="menu-item">
-<i class="fas fa-box"></i>
-<span>Jualan Saya</span>
-</div>
+document.querySelectorAll(".menu-item").forEach(item=>{
 
-<div class="menu-item">
-<i class="fas fa-heart"></i>
-<span>Favorit</span>
-</div>
+if(item.innerText.includes("Jualan")){
 
-<div class="menu-item">
-<i class="fas fa-comment"></i>
-<span>Pesan</span>
-</div>
+item.addEventListener("click", function(){
 
-<div class="menu-item">
-<i class="fas fa-gear"></i>
-<span>Pengaturan</span>
-</div>
+alert("Halaman Jualan Saya akan menampilkan semua posting milik akun ini.");
 
-</section>
+});
 
-<div class="profile-card">
+}
 
-<img id="profilePhoto" src="gallery/default-profile.png" class="profile-photo">
+});
 
-<input type="file" id="uploadPhoto">
 
-<input type="text" id="profileName" placeholder="Nama kamu">
+/* =========================
+LOAD SAAT HALAMAN DIBUKA
+========================= */
 
-<input type="text" id="profileLocation" placeholder="Lokasi">
+document.addEventListener("DOMContentLoaded", loadProfile);
 
-<textarea id="profileBio" placeholder="Bio singkat"></textarea>
-
-<button onclick="saveProfile()">Simpan Profil</button>
-
-</div>
-
-<div class="float-post" onclick="showForm('jual')">
-<i class="fa-solid fa-plus"></i>
-</div> 
-
-<div class="profile-container">
-
-<div class="profile-header">
-
-<img src="gallery/profile.jpg" class="profile-photo">
-
-<div class="profile-name">Nama Pengguna</div>
-<div class="profile-location">Wakatobi, Sulawesi Tenggara</div>
-
-<button>Edit Profil</button>
-
-</div>
-
-<div class="profile-menu">
-
-<div>🛍 Jualan Saya</div>
-<div>❤ Favorit</div>
-<div>💬 Pesan</div>
-<div>⚙ Pengaturan</div>
-
-</div>
-
-<div class="profile-form">
-
-<input type="file">
-
-<input type="text" placeholder="Nama kamu">
-
-<input type="text" placeholder="Lokasi">
-
-<textarea placeholder="Bio singkat"></textarea>
-
-<button>Simpan Profil</button>
-
-</div>                                                                  </html>
-
-</body>
-</html>
+  </script>
