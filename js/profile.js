@@ -110,4 +110,4 @@ LOAD SAAT HALAMAN DIBUKA
 
 document.addEventListener("DOMContentLoaded", loadProfile)
 
-document.querySelector(".save-btn").addEventListener("click", saveProfileReal)
+document.querySelector(".save-btn").addEventListener("onclick="saveprofile()"
